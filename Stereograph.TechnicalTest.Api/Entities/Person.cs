@@ -1,9 +1,9 @@
 ﻿using System;
 using SQLite;
 
-namespace Stereograph.TechnicalTest.Api.Models;
+namespace Stereograph.TechnicalTest.Api.Entities;
 
-public class Persons
+public class Person
 {
     [PrimaryKey, AutoIncrement]
     public int Id { get; set; }

@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
 using Stereograph.TechnicalTest.Api.Entities;
+using Stereograph.TechnicalTest.Api.ServiceExtension;
 
 namespace Stereograph.TechnicalTest.Api;
 
@@ -29,6 +30,8 @@ public class Startup
                 .EnableDetailedErrors();
         });
 
+        services.AddDIServices();
+
         services.AddSwaggerGen(options =>
         {
             options.DescribeAllParametersInCamelCase();
@@ -36,8 +39,7 @@ public class Startup
             options.CustomSchemaIds(schema => schema.FullName);
         });
 
-        services
-            .AddControllers();
+        services.AddControllers();
     }
 
     public void Configure(IApplicationBuilder application, IWebHostEnvironment environment)
